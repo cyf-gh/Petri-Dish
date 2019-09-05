@@ -70,7 +70,7 @@ namespace PetriDish.App {
                     readStream = new StreamReader( receiveStream, Encoding.GetEncoding( response.CharacterSet ) );
                 }
 
-                    data = readStream.ReadToEnd();
+                data = readStream.ReadToEnd();
 
                 response.Close();
                 readStream.Close();
@@ -133,7 +133,9 @@ namespace PetriDish.App {
         private void OpenJsonFile( string path ) {
             JsonEditorMainForm form = new JsonEditorMainForm();
             form.OpenWithFile( path );
-            form.Show();
+            if( form != null ) {
+                form.Show();
+            }
         }
 
         private void OpenJsonFile( Stream stream, string path ) {
@@ -145,7 +147,7 @@ namespace PetriDish.App {
         private void exitToolStripMenuItem_Click( Object sender, EventArgs e ) {
             Application.Exit();
         }
-        
+
         private void openProjectSceneToolStripMenuItem_Click( Object sender, EventArgs e ) {
         }
 
@@ -175,6 +177,10 @@ namespace PetriDish.App {
 
         private void aboutToolStripMenuItem_Click( Object sender, EventArgs e ) {
             MessageBox.Show( "Petri-Dish - Project Manager for CellWar.Game", "v0.0.1a" );
+        }
+
+        private void webBrowser1_DocumentCompleted( Object sender, WebBrowserDocumentCompletedEventArgs e ) {
+
         }
     }
 }

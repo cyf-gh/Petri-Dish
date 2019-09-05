@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace ZTn.Json.Editor.Forms {
     public sealed partial class JsonEditorMainForm : Form {
@@ -117,7 +118,7 @@ namespace ZTn.Json.Editor.Forms {
             }
 
             try {
-                using( var stream = new FileStream( OpenedFileName, FileMode.Open ) ) {
+                using( var stream = new FileStream( OpenedFileName, FileMode.Create ) ) {
                     jTokenTree.SaveJson( stream );
                 }
             } catch {
@@ -213,9 +214,12 @@ namespace ZTn.Json.Editor.Forms {
             } catch {
                 MessageBox.Show( this, $"An error occured when reading \"{OpenedFileName}\"", @"Open..." );
 
+                Process.Start( fileName );
+
                 OpenedFileName = null;
                 SetActionStatus( @"Document NOT loaded.", true );
 
+                this.Close();
                 return;
             }
 

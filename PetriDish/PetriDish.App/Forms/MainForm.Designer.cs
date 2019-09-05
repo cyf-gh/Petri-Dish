@@ -37,12 +37,12 @@
             this.rootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openProjectGithubPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.withPowerShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setProjectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.withPowerShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(906, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(906, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,7 +66,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
@@ -81,7 +81,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resourcesToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(63, 23);
             this.editToolStripMenuItem.Text = "Edit ...";
             // 
             // resourcesToolStripMenuItem
@@ -121,13 +121,13 @@
             this.openProjectGithubPageToolStripMenuItem,
             this.withPowerShellToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(125, 23);
             this.projectToolStripMenuItem.Text = "Open Project...";
             // 
             // openProjectSceneToolStripMenuItem
             // 
             this.openProjectSceneToolStripMenuItem.Name = "openProjectSceneToolStripMenuItem";
-            this.openProjectSceneToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.openProjectSceneToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.openProjectSceneToolStripMenuItem.Text = "Scene";
             this.openProjectSceneToolStripMenuItem.Click += new System.EventHandler(this.openProjectSceneToolStripMenuItem_Click);
             // 
@@ -137,7 +137,7 @@
             this.rootToolStripMenuItem,
             this.assestToolStripMenuItem});
             this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";
-            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.openProjectFolderToolStripMenuItem.Text = "Folder";
             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
             // 
@@ -158,16 +158,23 @@
             // openProjectGithubPageToolStripMenuItem
             // 
             this.openProjectGithubPageToolStripMenuItem.Name = "openProjectGithubPageToolStripMenuItem";
-            this.openProjectGithubPageToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.openProjectGithubPageToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.openProjectGithubPageToolStripMenuItem.Text = "Github Page";
             this.openProjectGithubPageToolStripMenuItem.Click += new System.EventHandler(this.openProjectGithubPageToolStripMenuItem_Click);
+            // 
+            // withPowerShellToolStripMenuItem
+            // 
+            this.withPowerShellToolStripMenuItem.Name = "withPowerShellToolStripMenuItem";
+            this.withPowerShellToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.withPowerShellToolStripMenuItem.Text = "With PowerShell";
+            this.withPowerShellToolStripMenuItem.Click += new System.EventHandler(this.withPowerShellToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setProjectDirectoryToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(78, 23);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // setProjectDirectoryToolStripMenuItem
@@ -177,6 +184,13 @@
             this.setProjectDirectoryToolStripMenuItem.Text = "Set Project Directory";
             this.setProjectDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setProjectDirectoryToolStripMenuItem_Click);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(63, 23);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
@@ -184,26 +198,13 @@
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 28);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 27);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(906, 588);
+            this.webBrowser1.Size = new System.Drawing.Size(906, 589);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.Url = new System.Uri("https://github.com/cyf-gh/Petri-Dish/blob/master/README.md", System.UriKind.Absolute);
-            // 
-            // withPowerShellToolStripMenuItem
-            // 
-            this.withPowerShellToolStripMenuItem.Name = "withPowerShellToolStripMenuItem";
-            this.withPowerShellToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.withPowerShellToolStripMenuItem.Text = "With PowerShell";
-            this.withPowerShellToolStripMenuItem.Click += new System.EventHandler(this.withPowerShellToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // MainForm
             // 

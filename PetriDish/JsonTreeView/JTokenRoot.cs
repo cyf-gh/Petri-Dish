@@ -98,6 +98,8 @@ namespace ZTn.Json.JsonTreeView
 
             using (var streamWriter = new StreamWriter(jsonStream))
             {
+                
+                streamWriter.Flush();
                 streamWriter.Write(jTokenValue.ToString());
             }
         }
