@@ -84,6 +84,7 @@ namespace ZTn.Json.Editor.Forms
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.label2);
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.newtonsoftJsonTypeTextBox);
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.label1);
+            this.jsonTreeViewSplitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.jsonTreeViewSplitContainer_Panel2_Paint);
             this.jsonTreeViewSplitContainer.Panel2MinSize = 320;
             this.jsonTreeViewSplitContainer.Size = new System.Drawing.Size(1344, 637);
             this.jsonTreeViewSplitContainer.SplitterDistance = 896;
@@ -100,7 +101,7 @@ namespace ZTn.Json.Editor.Forms
             this.jTokenTree.Location = new System.Drawing.Point(4, 3);
             this.jTokenTree.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.jTokenTree.Name = "jTokenTree";
-            this.jTokenTree.Size = new System.Drawing.Size(888, 630);
+            this.jTokenTree.Size = new System.Drawing.Size(545, 456);
             this.jTokenTree.TabIndex = 2;
             this.jTokenTree.AfterSelect += new System.EventHandler<ZTn.Json.JsonTreeView.AfterSelectEventArgs>(this.jTokenTree_AfterSelect);
             // 
@@ -126,7 +127,7 @@ namespace ZTn.Json.Editor.Forms
             this.jsonValueTextBox.Multiline = true;
             this.jsonValueTextBox.Name = "jsonValueTextBox";
             this.jsonValueTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.jsonValueTextBox.Size = new System.Drawing.Size(428, 521);
+            this.jsonValueTextBox.Size = new System.Drawing.Size(244, 347);
             this.jsonValueTextBox.TabIndex = 6;
             this.jsonValueTextBox.Enter += new System.EventHandler(this.jsonValueTextBox_Enter);
             this.jsonValueTextBox.Leave += new System.EventHandler(this.jsonValueTextBox_Leave);

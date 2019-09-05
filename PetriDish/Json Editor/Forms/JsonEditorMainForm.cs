@@ -297,5 +297,9 @@ namespace ZTn.Json.Editor.Forms {
             }
             e.Cancel = false; //点击OK
         }
+
+        private void jsonTreeViewSplitContainer_Panel2_Paint( Object sender, PaintEventArgs e ) {
+
+        }
     }
 }
