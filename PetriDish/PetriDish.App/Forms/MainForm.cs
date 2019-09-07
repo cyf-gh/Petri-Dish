@@ -229,7 +229,8 @@ namespace PetriDish.App
         {
         }
 
-        bool CheckGameDataLoading() {
+        bool CheckGameDataLoading()
+        {
             Console.Clear();
             var console = new ConsoleWriter();
             try
@@ -277,8 +278,13 @@ namespace PetriDish.App
             var ver = Convert.ToInt32(version);
             if (ver > Version.Value)
             {
-                MessageBox.Show("New Version Founded");
-                // start update
+
+                MessageBox.Show("New version is founded. Click to start update." + "");
+                DialogResult result = MessageBox.Show("确定删除吗？", "删除", MessageBoxButtons.YesNo, MessageBoxIcon.Question); if (result == DialogResult.Yes)
+                {
+                    Process.Start("");
+                }
+                else { return; }
             }
         }
 
