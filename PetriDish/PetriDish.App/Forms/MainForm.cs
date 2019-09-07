@@ -23,6 +23,7 @@ namespace PetriDish.App
     {
         public static string ProjectDirectoryInfoPath = Path.Combine(Directory.GetCurrentDirectory(), "data\\project_dir.json");
         public static string ReadmePath = Path.Combine(Directory.GetCurrentDirectory(), "data\\readmeurl.txt");
+        public static string VersionPath = Path.Combine(Directory.GetCurrentDirectory(), "data\\version.txt");
 
         public MainForm()
         {
@@ -64,9 +65,9 @@ namespace PetriDish.App
             }
         }
 
-        private string fetchRawFromHttp()
+        private string fetchRawFromHttp( string filePath )
         {
-            string urlAddress = File.ReadAllText(ReadmePath);
+            string urlAddress = File.ReadAllText(filePath);
             string data = "";
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
@@ -215,7 +216,7 @@ namespace PetriDish.App
                 web.Dock = DockStyle.Fill;
 
                 Markdown md = new Markdown();
-                web.DocumentText = md.Transform(fetchRawFromHttp());
+                web.DocumentText = md.Transform(fetchRawFromHttp(ReadmePath));
             }
             catch (Exception ex)
             {
@@ -263,7 +264,12 @@ namespace PetriDish.App
 
         private void CheckUpdateToolStripMenuItem_Click(Object sender, EventArgs e)
         {
-
+            var version = fetchRawFromHttp(ReadmePath);
+            var ver = Convert.ToInt32( version );
+            if (ver > Version.Value) {
+                MessageBox.Show( "New Version Founded");
+                // start update
+            }
         }
     }
 }
