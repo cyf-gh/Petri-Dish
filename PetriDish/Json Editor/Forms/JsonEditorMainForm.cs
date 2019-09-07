@@ -38,7 +38,7 @@ namespace ZTn.Json.Editor.Forms {
                 internalOpenedFileName = value;
                 saveToolStripMenuItem.Enabled = internalOpenedFileName != null;
                 saveAsToolStripMenuItem.Enabled = internalOpenedFileName != null;
-                Text = ( internalOpenedFileName ?? "" ) + @" - Json Editor by ZTn";
+                Text = ( internalOpenedFileName ?? "" ) + @" - Json Editor by ZTn. Enhanced by cyf-gh.";
             }
         }
 

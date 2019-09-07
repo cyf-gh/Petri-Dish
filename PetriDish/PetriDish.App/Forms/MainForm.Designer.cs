@@ -31,6 +31,7 @@
             this.gameDataToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.verifyAllDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openProjectSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openProjectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,10 +40,14 @@
             this.openProjectGithubPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.withPowerShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setProjectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.viewHOWTOUSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.backgroundWorker_LoadHowToUse = new System.ComponentModel.BackgroundWorker();
+            this.petriDishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setProjectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +62,8 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(906, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1019, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,23 +72,24 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resourcesToolStripMenuItem});
+            this.resourcesToolStripMenuItem,
+            this.verifyAllDataToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(63, 23);
-            this.editToolStripMenuItem.Text = "Edit ...";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
+            this.editToolStripMenuItem.Text = "Edit Json...";
             // 
             // resourcesToolStripMenuItem
             // 
@@ -91,27 +98,34 @@
             this.saveToolStripMenuItem1,
             this.languageToolStripMenuItem1});
             this.resourcesToolStripMenuItem.Name = "resourcesToolStripMenuItem";
-            this.resourcesToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.resourcesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resourcesToolStripMenuItem.Text = "Resources";
             // 
             // gameDataToolStripMenuItem1
             // 
             this.gameDataToolStripMenuItem1.Name = "gameDataToolStripMenuItem1";
-            this.gameDataToolStripMenuItem1.Size = new System.Drawing.Size(163, 26);
+            this.gameDataToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.gameDataToolStripMenuItem1.Text = "Game Data";
             this.gameDataToolStripMenuItem1.Click += new System.EventHandler(this.gameDataToolStripMenuItem1_Click);
             // 
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(163, 26);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             // 
             // languageToolStripMenuItem1
             // 
             this.languageToolStripMenuItem1.Name = "languageToolStripMenuItem1";
-            this.languageToolStripMenuItem1.Size = new System.Drawing.Size(163, 26);
+            this.languageToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.languageToolStripMenuItem1.Text = "Language";
+            // 
+            // verifyAllDataToolStripMenuItem
+            // 
+            this.verifyAllDataToolStripMenuItem.Name = "verifyAllDataToolStripMenuItem";
+            this.verifyAllDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verifyAllDataToolStripMenuItem.Text = "Verify All";
+            this.verifyAllDataToolStripMenuItem.Click += new System.EventHandler(this.VerifyAllDataToolStripMenuItem_Click);
             // 
             // projectToolStripMenuItem
             // 
@@ -121,13 +135,13 @@
             this.openProjectGithubPageToolStripMenuItem,
             this.withPowerShellToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(125, 23);
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(105, 21);
             this.projectToolStripMenuItem.Text = "Open Project...";
             // 
             // openProjectSceneToolStripMenuItem
             // 
             this.openProjectSceneToolStripMenuItem.Name = "openProjectSceneToolStripMenuItem";
-            this.openProjectSceneToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.openProjectSceneToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.openProjectSceneToolStripMenuItem.Text = "Scene";
             this.openProjectSceneToolStripMenuItem.Click += new System.EventHandler(this.openProjectSceneToolStripMenuItem_Click);
             // 
@@ -137,35 +151,35 @@
             this.rootToolStripMenuItem,
             this.assestToolStripMenuItem});
             this.openProjectFolderToolStripMenuItem.Name = "openProjectFolderToolStripMenuItem";
-            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.openProjectFolderToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.openProjectFolderToolStripMenuItem.Text = "Folder";
             this.openProjectFolderToolStripMenuItem.Click += new System.EventHandler(this.openProjectFolderToolStripMenuItem_Click);
             // 
             // rootToolStripMenuItem
             // 
             this.rootToolStripMenuItem.Name = "rootToolStripMenuItem";
-            this.rootToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.rootToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.rootToolStripMenuItem.Text = "Root";
             this.rootToolStripMenuItem.Click += new System.EventHandler(this.rootToolStripMenuItem_Click);
             // 
             // assestToolStripMenuItem
             // 
             this.assestToolStripMenuItem.Name = "assestToolStripMenuItem";
-            this.assestToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.assestToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.assestToolStripMenuItem.Text = "Assest";
             this.assestToolStripMenuItem.Click += new System.EventHandler(this.assestToolStripMenuItem_Click);
             // 
             // openProjectGithubPageToolStripMenuItem
             // 
             this.openProjectGithubPageToolStripMenuItem.Name = "openProjectGithubPageToolStripMenuItem";
-            this.openProjectGithubPageToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.openProjectGithubPageToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.openProjectGithubPageToolStripMenuItem.Text = "Github Page";
             this.openProjectGithubPageToolStripMenuItem.Click += new System.EventHandler(this.openProjectGithubPageToolStripMenuItem_Click);
             // 
             // withPowerShellToolStripMenuItem
             // 
             this.withPowerShellToolStripMenuItem.Name = "withPowerShellToolStripMenuItem";
-            this.withPowerShellToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.withPowerShellToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.withPowerShellToolStripMenuItem.Text = "With PowerShell";
             this.withPowerShellToolStripMenuItem.Click += new System.EventHandler(this.withPowerShellToolStripMenuItem_Click);
             // 
@@ -174,46 +188,80 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setProjectDirectoryToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(78, 23);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(66, 21);
             this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // setProjectDirectoryToolStripMenuItem
-            // 
-            this.setProjectDirectoryToolStripMenuItem.Name = "setProjectDirectoryToolStripMenuItem";
-            this.setProjectDirectoryToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
-            this.setProjectDirectoryToolStripMenuItem.Text = "Set Project Directory";
-            this.setProjectDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setProjectDirectoryToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewHOWTOUSEToolStripMenuItem,
+            this.checkUpdateToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.petriDishToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(63, 23);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(55, 21);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // backgroundWorker1
+            // viewHOWTOUSEToolStripMenuItem
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.viewHOWTOUSEToolStripMenuItem.Name = "viewHOWTOUSEToolStripMenuItem";
+            this.viewHOWTOUSEToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.viewHOWTOUSEToolStripMenuItem.Text = "View How to use";
+            this.viewHOWTOUSEToolStripMenuItem.Click += new System.EventHandler(this.ViewHOWTOUSEToolStripMenuItem_Click);
             // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 27);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 25);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(22, 24);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(906, 589);
+            this.webBrowser1.Size = new System.Drawing.Size(1019, 714);
             this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.Url = new System.Uri("https://github.com/cyf-gh/Petri-Dish/blob/master/README.md", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            // 
+            // backgroundWorker_LoadHowToUse
+            // 
+            this.backgroundWorker_LoadHowToUse.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_LoadHowToUse_DoWork);
+            // 
+            // petriDishToolStripMenuItem
+            // 
+            this.petriDishToolStripMenuItem.Name = "petriDishToolStripMenuItem";
+            this.petriDishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.petriDishToolStripMenuItem.Text = "Petri-Dish";
+            this.petriDishToolStripMenuItem.Click += new System.EventHandler(this.PetriDishToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "------------";
+            // 
+            // checkUpdateToolStripMenuItem
+            // 
+            this.checkUpdateToolStripMenuItem.Name = "checkUpdateToolStripMenuItem";
+            this.checkUpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkUpdateToolStripMenuItem.Text = "Check update";
+            this.checkUpdateToolStripMenuItem.Click += new System.EventHandler(this.CheckUpdateToolStripMenuItem_Click);
+            // 
+            // setProjectDirectoryToolStripMenuItem
+            // 
+            this.setProjectDirectoryToolStripMenuItem.Name = "setProjectDirectoryToolStripMenuItem";
+            this.setProjectDirectoryToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.setProjectDirectoryToolStripMenuItem.Text = "Set Project Directory";
+            this.setProjectDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setProjectDirectoryToolStripMenuItem_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 616);
+            this.ClientSize = new System.Drawing.Size(1019, 739);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Petri-Dish";
@@ -230,8 +278,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setProjectDirectoryToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openProjectSceneToolStripMenuItem;
@@ -247,5 +293,12 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripMenuItem withPowerShellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewHOWTOUSEToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_LoadHowToUse;
+        private System.Windows.Forms.ToolStripMenuItem verifyAllDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem petriDishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem setProjectDirectoryToolStripMenuItem;
     }
 }

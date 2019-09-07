@@ -90,5 +90,10 @@ namespace ZTn.Json.Editor.Forms
             }
         }
         #endregion
+
+        private void AboutBox_Load(System.Object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
