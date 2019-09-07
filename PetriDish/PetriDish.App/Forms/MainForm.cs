@@ -16,6 +16,7 @@ using System.Diagnostics;
 using HeyRed.MarkdownSharp;
 using System.Net;
 using ColorConsole;
+using PetriDish.App.Forms;
 
 namespace PetriDish.App
 {
@@ -23,7 +24,7 @@ namespace PetriDish.App
     {
         public static string ProjectDirectoryInfoPath = Path.Combine(Directory.GetCurrentDirectory(), "data\\project_dir.json");
         public static string ReadmePath = Path.Combine(Directory.GetCurrentDirectory(), "data\\readmeurl.txt");
-        public static string VersionPath = Path.Combine(Directory.GetCurrentDirectory(), "data\\version.txt");
+        public static string VersionPath = Path.Combine(Directory.GetCurrentDirectory(), "data\\versionurl.txt");
 
         public MainForm()
         {
@@ -65,7 +66,7 @@ namespace PetriDish.App
             }
         }
 
-        private string fetchRawFromHttp( string filePath )
+        private string fetchRawFromHttp(string filePath)
         {
             string urlAddress = File.ReadAllText(filePath);
             string data = "";
@@ -228,8 +229,7 @@ namespace PetriDish.App
         {
         }
 
-        private void VerifyAllDataToolStripMenuItem_Click(Object sender, EventArgs e)
-        {
+        bool CheckGameDataLoading() {
             Console.Clear();
             var console = new ConsoleWriter();
             try
@@ -239,11 +239,12 @@ namespace PetriDish.App
                 Local.LoadAllChemicals();
                 Local.LoadAllRegulartoryGenes();
                 Local.LoadAllRaces();
-                console.WriteLine(string.Format("+ Finished Loading All GameData" ), ConsoleColor.Green);
+                console.WriteLine(string.Format("+ Finished Loading All GameData"), ConsoleColor.Green);
             }
             catch (Exception ex)
             {
                 console.WriteLine(string.Format("- Error \n\n{0}\n\n", ex), ConsoleColor.Red);
+                return false;
             }
             try
             {
@@ -253,10 +254,18 @@ namespace PetriDish.App
             catch (Exception ex)
             {
                 console.WriteLine(string.Format("- Error \n\n{0}\n\n", ex), ConsoleColor.Red);
+                return false;
             }
             console.WriteLine(string.Format("+ Finished Json Valid {0}", DateTime.Now), ConsoleColor.Yellow);
+            return true;
+
         }
- 
+
+        private void VerifyAllDataToolStripMenuItem_Click(Object sender, EventArgs e)
+        {
+            CheckGameDataLoading();
+        }
+
         private void PetriDishToolStripMenuItem_Click(Object sender, EventArgs e)
         {
             MessageBox.Show("Petri-Dish - Project Manager for CellWar.Game", "v0.1.0a");
@@ -264,12 +273,36 @@ namespace PetriDish.App
 
         private void CheckUpdateToolStripMenuItem_Click(Object sender, EventArgs e)
         {
-            var version = fetchRawFromHttp(ReadmePath);
-            var ver = Convert.ToInt32( version );
-            if (ver > Version.Value) {
-                MessageBox.Show( "New Version Founded");
+            var version = fetchRawFromHttp(VersionPath);
+            var ver = Convert.ToInt32(version);
+            if (ver > Version.Value)
+            {
+                MessageBox.Show("New Version Founded");
                 // start update
             }
+        }
+
+        private void RaceHelperToolStripMenuItem_Click(Object sender, EventArgs e)
+        {
+            Console.Clear();
+            var console = new ConsoleWriter();
+            try
+            {
+                console.WriteLine(string.Format("+ Start Json Valid {0}", DateTime.Now), ConsoleColor.Yellow);
+                Local.LoadAllCodingGenes();
+                Local.LoadAllChemicals();
+                Local.LoadAllRegulartoryGenes();
+                console.WriteLine(string.Format("+ Finished Loading All GameData"), ConsoleColor.Green);
+            }
+            catch (Exception ex)
+            {
+                console.WriteLine(string.Format("- Error \n\n{0}\n\n", ex), ConsoleColor.Red);
+            }
+            console.WriteLine(string.Format("+ Finished Json Valid {0}", DateTime.Now), ConsoleColor.Yellow);
+
+            RaceHelperForm form = new RaceHelperForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
         }
     }
 }

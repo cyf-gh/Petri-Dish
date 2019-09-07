@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\RaceHelperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RaceHelperForm.Designer.cs">
+      <DependentUpon>RaceHelperForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\GamePermanent.cs" />
     <Compile Include="Src\JsonHelper.cs" />
     <Compile Include="Src\KeyValueToolStripMenuItem.cs">
@@ -104,6 +110,9 @@
     <Compile Include="Version.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RaceHelperForm.resx">
+      <DependentUpon>RaceHelperForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

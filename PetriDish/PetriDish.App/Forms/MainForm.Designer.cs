@@ -48,6 +48,8 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setProjectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raceHelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +88,8 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resourcesToolStripMenuItem,
-            this.verifyAllDataToolStripMenuItem});
+            this.verifyAllDataToolStripMenuItem,
+            this.utilsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
             this.editToolStripMenuItem.Text = "Edit Json...";
@@ -253,6 +256,21 @@
             this.setProjectDirectoryToolStripMenuItem.Text = "Set Project Directory";
             this.setProjectDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setProjectDirectoryToolStripMenuItem_Click);
             // 
+            // utilsToolStripMenuItem
+            // 
+            this.utilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.raceHelperToolStripMenuItem});
+            this.utilsToolStripMenuItem.Name = "utilsToolStripMenuItem";
+            this.utilsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.utilsToolStripMenuItem.Text = "Utils";
+            // 
+            // raceHelperToolStripMenuItem
+            // 
+            this.raceHelperToolStripMenuItem.Name = "raceHelperToolStripMenuItem";
+            this.raceHelperToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.raceHelperToolStripMenuItem.Text = "Gene Names Generator";
+            this.raceHelperToolStripMenuItem.Click += new System.EventHandler(this.RaceHelperToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -300,5 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem checkUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem setProjectDirectoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raceHelperToolStripMenuItem;
     }
 }
