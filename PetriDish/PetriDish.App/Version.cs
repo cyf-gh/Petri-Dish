@@ -8,6 +8,6 @@ namespace PetriDish.App
 {
     public static class Version
     {
-        public static int Value { get; set; } = 1000;
+        public static int Value { get; set; } = 1001;
     }
 }

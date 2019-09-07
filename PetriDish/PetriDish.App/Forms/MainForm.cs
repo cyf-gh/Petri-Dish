@@ -279,12 +279,17 @@ namespace PetriDish.App
             if (ver > Version.Value)
             {
 
-                MessageBox.Show("New version is founded. Click to start update." + "");
-                DialogResult result = MessageBox.Show("确定删除吗？", "删除", MessageBoxButtons.YesNo, MessageBoxIcon.Question); if (result == DialogResult.Yes)
+                MessageBox.Show("New version is founded. Click to start update.");
+                DialogResult result = MessageBox.Show("Are you sure to update?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    Process.Start("");
+                    Process.Start("ppUpdator.App.exe");
+                    Application.Exit();
                 }
-                else { return; }
+            }
+            else
+            {
+                MessageBox.Show("Up to date.");
             }
         }
 
