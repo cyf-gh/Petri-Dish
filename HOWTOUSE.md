@@ -38,6 +38,14 @@ Open Project... -> with Powershell
 
 快速用Powershell打开项目目录。
 
+1.3 更新软件
+
+```
+About -> Check update
+```
+
+如果途中发生错误并得知有更新，可以手动点击ppUpdate.App.exe来进行更新。
+
 ## 2 开始编辑数据
 
 ## 2.1 编辑Json
@@ -45,7 +53,7 @@ Open Project... -> with Powershell
 ### 2.1.1 打开Json文件
 
 ```
-Edit -> Resources
+Edit Json... -> Resources
 ```
 
 选择你希望编辑的数据文件。**（注：文件不能为空，至少需要最基本的json元素如"{}"或"[]"文本）**
@@ -82,3 +90,35 @@ Or
 ```
 
 改进后的程序将在每次尝试退出时询问是否保存（即使不进行任何改动）。
+
+#### 2.1.2.4 辅助功能
+
+##### 2.1.2.4.1 Gene Name Generator
+
+为保证Race的Names列表符合标准编写的插件。
+
+```
+Edit Json... -> Utils -> Gene Name Generator
+```
+
+**（注：按下生成按钮后会自动复制到粘贴板，无需额外复制操作）**
+
+### 2.2 验证Json文件
+
+#### 2.2.1 打开Json文件
+
+```
+Edit Json... -> Verify All
+```
+
+一个通过验证的输出应形如：
+
+````
++ Start Json Verification 2019/9/7 20:26:05
++ Finished Loading All GameData
++ Finished Loading All Save Files
++ Finished Json Verification 2019/9/7 20:26:05
+````
+
+如果无法理解Json错误，请联系作者。
+
