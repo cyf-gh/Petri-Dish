@@ -235,7 +235,7 @@ namespace PetriDish.App
             var console = new ConsoleWriter();
             try
             {
-                console.WriteLine(string.Format("+ Start Json Valid {0}", DateTime.Now), ConsoleColor.Yellow);
+                console.WriteLine(string.Format("+ Start Json Verification {0}", DateTime.Now), ConsoleColor.Yellow);
                 Local.LoadAllCodingGenes();
                 Local.LoadAllChemicals();
                 Local.LoadAllRegulartoryGenes();
@@ -257,7 +257,7 @@ namespace PetriDish.App
                 console.WriteLine(string.Format("- Error \n\n{0}\n\n", ex), ConsoleColor.Red);
                 return false;
             }
-            console.WriteLine(string.Format("+ Finished Json Valid {0}", DateTime.Now), ConsoleColor.Yellow);
+            console.WriteLine(string.Format("+ Finished Json Verification {0}", DateTime.Now), ConsoleColor.Yellow);
             return true;
 
         }
